@@ -26,10 +26,14 @@
 e1-3-mini-npu-simulator/
 ├── .gitignore
 ├── README.md
+├── data.json
 ├── main.py
 └── src/
-    ├── 
-    └── 
+    ├── __init__.py
+    ├── simulator.py
+    ├── io_handler.py
+    ├── performance.py
+    └── patterns.py
 ```
 
 ### 1.3 프로젝트 체크리스트
