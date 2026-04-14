@@ -52,7 +52,7 @@ e1-3-mini-npu-simulator/
 
 ### 2.1 MAC 연산
 
-MAC(Multiply-Accumulate) 연산은 두 값을 곱한 뒤, 그 결과를 계속 더해 나가는 연산이다.  
+MAC(Multiply and Accumulate) 연산은 두 값을 곱한 뒤, 그 결과를 계속 누적해서 더해 나가는 연산이다.  
 즉, 하나의 연산 안에서 곱셈(Multiply)과 누적 덧셈(Accumulate)이 함께 이루어진다.
 
 이 프로젝트에서는 입력 패턴과 필터의 같은 위치에 있는 값을 서로 곱하고, 그 결과를 모두 더해 하나의 점수를 만든다.  
