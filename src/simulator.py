@@ -14,19 +14,34 @@ def calculate_mac(pattern: Matrix, filter_matrix: Matrix) -> float:
 
 def normalize_label(label: str) -> str:
     # expected 값이나 필터 이름이 달라도 내부에서는 Cross, X로 통일해 다룬다.
-    raise NotImplementedError
+    normalized = label.strip().lower()
+
+    if normalized in {"+", "cross"}:
+        return "Cross"
+
+    if normalized == "x":
+        return "X"
+
+    return label
 
 
 def is_tie(score_a: float, score_b: float, epsilon: float = 1e-9) -> bool:
     # 부동소수점 오차를 고려해 epsilon 이내 차이는 같은 점수로 처리한다.
-    raise NotImplementedError
+    return abs(score_a - score_b) < epsilon
 
 
 def judge_scores(
     cross_score: float, x_score: float, epsilon: float = 1e-9
 ) -> str:
     # Cross 점수와 X 점수를 비교해 어느 필터와 더 유사한지 결정한다.
-    raise NotImplementedError
+    # 두 점수 차이가 매우 작으면 판정을 보류한다.
+    if is_tie(cross_score, x_score, epsilon):
+        return "UNDECIDED"
+
+    if cross_score > x_score:
+        return "Cross"
+
+    return "X"
 
 
 def evaluate_pattern(
